@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('customer', function (Blueprint $table) {
+            $table->unsignedBigInteger('sales_id');
+            $table->string('metode_ketemu')->comment('SOSMED, KETEMU LANGSUNG'); //
+            $table->string('status_ketertarikan')->comment('RAGU, TERTARIK, CLOSING'); //
+            $table->foreign('sales_id')->references('id')->on('users');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('customer', function (Blueprint $table) {
+            $table->dropForeign(['sales_id']);
+            $table->dropColumn([
+                'sales_id', 'metode_ketemu', 'status_ketertarikan'
+            ]);
+        });
+    }
+};

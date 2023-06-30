@@ -10,7 +10,7 @@ trait CrudTrait
     {
         parent::boot();
         static::creating(function($model){
-            $model->id = Str::uuid();
+            // $model->id = Str::uuid();
             $model->created_by = auth()->id() ?? null;
         });
         self::updating(function($model){

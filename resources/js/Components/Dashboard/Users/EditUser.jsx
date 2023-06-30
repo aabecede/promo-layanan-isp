@@ -25,7 +25,7 @@ export default function EditUser({ close, model }) {
         });
     }, [model]);
 
-    console.log(data)
+    // console.log(data)
     return (
         <>
             <form onSubmit={onSubmit}>
@@ -47,9 +47,9 @@ export default function EditUser({ close, model }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="address" className="col-form-label">Roles:</label>
-                        <select name="roles" onChange="onChange" id="roles" className="form-control" style={{ width: '100% !important' }}>
+                        <select name="roles" onChange="onChange" value={data.roles} id="roles" className="form-control" style={{ width: '100% !important' }}>
                             {userRoles.map((role, index) => (
-                                <option key={index} value={role} selected={role === data.roles}>{role}</option>
+                                <option key={index} value={role} >{role}</option>
                             ))}
                         </select>
                     </div>

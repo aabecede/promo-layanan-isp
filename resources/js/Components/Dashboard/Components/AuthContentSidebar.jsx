@@ -3,7 +3,7 @@ import React from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 export default function ContentSidebar() {
     const { auth } = usePage().props;
-    console.log(auth.user.roles, auth)
+    // console.log(auth.user.roles, auth)
     if (auth.user.roles == 'super-admin') {
         return (
             <li className="nav-item">
