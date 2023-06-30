@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class UserRequest extends FormRequest
@@ -29,7 +31,11 @@ class UserRequest extends FormRequest
             'username' => ['required', 'unique:users,username,' . optional($this->user)->id,],
             'name' => ['required'],
             'password' => (empty($this->user->password)) ? ['required', Password::defaults()] : '',
-            'address' => ['required'],
+            'roles' => [
+                'required',
+                Rule::in(User::$roles),
+            ]
+            // 'address' => ['required'],
         ];
     }
 }

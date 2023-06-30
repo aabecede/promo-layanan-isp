@@ -1,0 +1,38 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class {{ class }} extends Model
+{
+    use CrudTrait;
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $table = {{ class }};
+    protected $guarded = ['id'];
+    protected $hidden = ['id'];
+    //public $incrementing = false;
+    //protected $keyType = 'string';
+    public function delete()
+    {
+        parent::update([
+            'deleted_at' => now(),
+            'deleted_by' => auth()->id(),
+        ]);
+    }
+
+
+
+    /** Relation
+     * do your code
+    */
+
+    /** Attribute
+     * do your code
+    */
+}

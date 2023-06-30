@@ -7,7 +7,7 @@ import Footer from '../Components/Dashboard/Footer'
 
 export default function Base({children, title}) {
     const { flash } = usePage().props;
-    
+
     flash.type && toast[flash.type](flash.message)
 
     return (
@@ -20,7 +20,7 @@ export default function Base({children, title}) {
                     <Toaster position='top-center' duration='4000'/>
                     {children}
                     <Footer/>
-                </main>            
+                </main>
         </div>
     )
 }
