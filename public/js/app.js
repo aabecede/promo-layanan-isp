@@ -7332,7 +7332,7 @@ function Index(props) {
   };
 
   var destroyAction = function destroyAction() {
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_7__.Inertia["delete"](route('customer.destroy', state.id), {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_7__.Inertia["delete"](route('customers.destroy', state.uuid), {
       onSuccess: function onSuccess() {
         return destroyCloseTrigger();
       }

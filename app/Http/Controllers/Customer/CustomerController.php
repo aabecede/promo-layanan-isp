@@ -97,11 +97,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CustomerStoreRequest $request, $id)
+    public function update(CustomerStoreRequest $request, Customer $customer)
     {
         try {
             DB::beginTransaction();
-            $customer = Customer::find($id);
             $customer->name = $request->name;
             $customer->phone = $request->phone;
             $customer->address = $request->address;
@@ -126,8 +125,19 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $customer->delete();
+            DB::commit();
+            return back()->with([
+                'type' => 'success',
+                'message' => 'Data has been deleted',
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 }
