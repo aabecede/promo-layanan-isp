@@ -56,6 +56,7 @@ class PackagesController extends Controller
             ->toArray();
         return inertia('Packages/Index', [
             'data' => $data,
+            'module' => 'packages',
             'dataDynamic' => $dataDynamic,
             'dataModem' => $dataModem,
             'dataTv_chanel' => $dataTv_chanel,

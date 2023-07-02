@@ -21,12 +21,13 @@ export default function Edit({ close, model }) {
     const { dataModem } = usePage().props;
     const { dataTv_chanel } = usePage().props;
     const { dataJumlah_perangkat } = usePage().props;
+    const { module } = usePage().props;
     const { auth } = usePage().props;
     const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
     const onSubmit = (e) => {
         e.preventDefault();
-        put(route('packages.update', model.uuid), {
+        put(route(`${module}.update`, model.uuid), {
             data,
             onSuccess: () => {
                 reset(),

@@ -20,6 +20,7 @@ export default function Create({ close }) {
     const { dataModem } = usePage().props;
     const { dataTv_chanel } = usePage().props;
     const { dataJumlah_perangkat } = usePage().props;
+    const { module } = usePage().props;
     const { auth } = usePage().props;
     const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -52,7 +53,7 @@ export default function Create({ close }) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        post(route('packages.store'), {
+        post(route(`${module}.store`), {
             data,
             onSuccess: () => {
                 reset(),
