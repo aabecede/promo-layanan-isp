@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\Packages\PackagesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
 
     Route::apiResource('users', UserController::class);
     Route::apiResource('customers', CustomerController::class);
+    Route::apiResource('packages', PackagesController::class);
 
     Route::get('profile', ProfileController::class)->name('profile');
 });
@@ -28,8 +30,5 @@ Route::middleware('guest')->group(function () {
 
     Route::get('register', [RegisterController::class, 'create'])->name('register');
     Route::post('register', [RegisterController::class, 'store']);
-
-    // Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-    // Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 });
 
