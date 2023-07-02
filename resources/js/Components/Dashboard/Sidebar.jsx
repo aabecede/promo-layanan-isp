@@ -40,7 +40,7 @@ export default function Sidebar() {
                     </li>
                     <AuthContentSidebar />
                     <li className="nav-item">
-                        <Link className="nav-link " as='a' method='post' href={route('logout')}>
+                        <Link className="nav-link " as='logout' method='post' href={route('logout')}>
                             <div className="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i className="fas fa-sign-out-alt text-danger text-sm opacity-10"></i>
                             </div>

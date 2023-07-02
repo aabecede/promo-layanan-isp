@@ -25,6 +25,12 @@ export default function ContentSidebar() {
                     </div>
                     <span className="nav-link-text ms-1">Packages</span>
                 </Link>
+                <Link className={`${route().current('promos.*') && 'active'} nav-link`} href={route('promos.index')}>
+                    <div className="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i className="fas fa-user-lock text-warning text-sm opacity-10" />
+                    </div>
+                    <span className="nav-link-text ms-1">Promo</span>
+                </Link>
             </li>
         )
     }

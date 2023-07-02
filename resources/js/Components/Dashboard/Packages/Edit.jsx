@@ -81,7 +81,7 @@ export default function Edit({ close, model }) {
     };
     /**end */
 
-    console.log(model)
+    // console.log(model)
     return (
         <>
             <form onSubmit={onSubmit}>
