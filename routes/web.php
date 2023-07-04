@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\CustomerClosing\CustomerClosingController;
 use App\Http\Controllers\Packages\PackagesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -26,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::apiResource('promos', PromoController::class);
     Route::post('promos/{promo}', [PromoController::class, 'update']);
     Route::apiResource('customers', CustomerController::class);
+    Route::post('customers/{customer}', [CustomerController::class, 'updateClosing'])->name('customer.update_closing');
+    Route::apiResource('customers-closing', CustomerClosingController::class);
 
     Route::get('profile', ProfileController::class)->name('profile');
 });

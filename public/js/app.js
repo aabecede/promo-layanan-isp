@@ -7580,6 +7580,18 @@ function ContentSidebar() {
           children: "Customers"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "".concat(route().current('customers-closing.*') && 'active', " nav-link"),
+        href: route('customers-closing.index'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-user-lock text-warning text-sm opacity-10"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "nav-link-text ms-1",
+          children: "Customers Closing"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
         className: "".concat(route().current('packages.*') && 'active', " nav-link"),
         href: route('packages.index'),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7608,6 +7620,18 @@ function ContentSidebar() {
           children: "Customer"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "".concat(route().current('customers-closing.*') && 'active', " nav-link"),
+        href: route('customers-closing.index'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-user-lock text-warning text-sm opacity-10"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "nav-link-text ms-1",
+          children: "Customers Closing"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
         className: "".concat(route().current('packages.*') && 'active', " nav-link"),
         href: route('packages.index'),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7624,6 +7648,315 @@ function ContentSidebar() {
   } else {
     return '';
   }
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/Dashboard/Customer/Closing.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/Components/Dashboard/Customer/Closing.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+function Edit(_ref) {
+  var _auth$user;
+
+  var close = _ref.close,
+      model = _ref.model;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+    is_closing: true,
+    ktp_image: model.ktp_image,
+    ktp_nama: model.ktp_nama,
+    ktp_nik: model.ktp_nik,
+    ktp_address: model.ktp_address,
+    package_id: model.package_id,
+    promo_id: model.promo_id,
+    rumah_foto: model.rumah_foto,
+    rumah_address: model.rumah_address,
+    rumah_lat: model.rumah_lat,
+    rumah_long: model.rumah_long
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      reset = _useForm.reset,
+      errors = _useForm.errors;
+
+  var packages = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.packages;
+  var promos = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.promos;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
+
+  var onChange = function onChange(e) {
+    return setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, e.target.name, e.target.value)));
+  };
+
+  var onSubmit = function onSubmit(e) {
+    e.preventDefault();
+    post(route('customer.update_closing', model.uuid), {
+      data: data,
+      onSuccess: function onSuccess() {
+        reset(), close();
+      }
+    });
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    setData(_objectSpread(_objectSpread({}, data), {}, {
+      is_closing: true,
+      ktp_image: model.ktp_image,
+      ktp_nama: model.ktp_nama,
+      ktp_nik: model.ktp_nik,
+      ktp_address: model.ktp_address,
+      package_id: model.package_id,
+      promo_id: model.promo_id,
+      rumah_foto: model.rumah_foto,
+      rumah_address: model.rumah_address,
+      rumah_lat: model.rumah_lat,
+      rumah_long: model.rumah_long
+    }));
+  }, [model]);
+  /**rules */
+
+  var isSuperSales = ['super-admin', 'sales'].includes(auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.roles); // console.log(data)
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+      onSubmit: onSubmit,
+      encType: "multipart/form-data",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "modal-body",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "name",
+            className: "col-form-label",
+            children: "Gambar KTP:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "file",
+            className: "form-control",
+            name: "ktp_image",
+            onChange: function onChange(e) {
+              return setData(_objectSpread(_objectSpread({}, data), {}, {
+                ktp_image: e.target.files[0]
+              }));
+            },
+            id: "ktp_image"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.ktp_image
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "name",
+            className: "col-form-label",
+            children: "KTP Nama:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "ktp_nama",
+            value: data.ktp_nama,
+            onChange: onChange,
+            id: "ktp_nama"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.ktp_nama
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "name",
+            className: "col-form-label",
+            children: "KTP NIK:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "ktp_nik",
+            value: data.ktp_nik,
+            onChange: onChange,
+            id: "ktp_nik"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.ktp_nik
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "name",
+            className: "col-form-label",
+            children: "KTP Address:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "ktp_address",
+            value: data.ktp_address,
+            onChange: onChange,
+            id: "ktp_address"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.ktp_address
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "package_id",
+            className: "col-form-label",
+            children: "Package:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+            name: "package_id",
+            onChange: onChange,
+            value: data.package_id,
+            id: "package_id",
+            className: "form-control",
+            style: {
+              width: '100% !important'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+              children: " -Pilih salah satu- "
+            }), packages.map(function (dataPackage, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: dataPackage.uuid,
+                children: dataPackage.name
+              }, dataPackage.uuid);
+            })]
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.package_id
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "promo_id",
+            className: "col-form-label",
+            children: "Promo:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+            name: "promo_id",
+            onChange: onChange,
+            value: data.promo_id,
+            id: "promo_id",
+            className: "form-control",
+            style: {
+              width: '100% !important'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+              children: " -Pilih salah satu- "
+            }), promos.map(function (promo, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: promo.uuid,
+                children: promo.title
+              }, index);
+            })]
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.promo_id
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "rumah_foto",
+            className: "col-form-label",
+            children: "Gambar Rumah:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "file",
+            className: "form-control",
+            name: "rumah_foto",
+            onChange: function onChange(e) {
+              return setData(_objectSpread(_objectSpread({}, data), {}, {
+                rumah_foto: e.target.files[0]
+              }));
+            },
+            id: "rumah_foto"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.rumah_foto
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "rumah_address",
+            className: "col-form-label",
+            children: "Rumah Address:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "rumah_address",
+            value: data.rumah_address,
+            onChange: onChange,
+            id: "rumah_address"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.rumah_address
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "rumah_lat",
+            className: "col-form-label",
+            children: "Gambar Latitude:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "rumah_lat",
+            value: data.rumah_lat,
+            onChange: onChange,
+            id: "rumah_lat"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.rumah_lat
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "rumah_long",
+            className: "col-form-label",
+            children: "Gambar Longtitude:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            name: "rumah_long",
+            value: data.rumah_long,
+            onChange: onChange,
+            id: "rumah_long"
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.rumah_long
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "modal-footer",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          type: "button",
+          className: "btn bg-gradient-secondary",
+          "data-bs-dismiss": "modal",
+          children: "Close"
+        }), isSuperSales ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          type: "submit",
+          className: "btn bg-gradient-primary",
+          children: "Update Closing"
+        }) : '']
+      })]
+    })
+  });
 }
 
 /***/ }),
@@ -10496,8 +10829,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Hooks/useDialog */ "./resources/js/Hooks/useDialog.jsx");
 /* harmony import */ var _Components_Dashboard_Customer_Create__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/Dashboard/Customer/Create */ "./resources/js/Components/Dashboard/Customer/Create.jsx");
 /* harmony import */ var _Components_Dashboard_Customer_Edit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Components/Dashboard/Customer/Edit */ "./resources/js/Components/Dashboard/Customer/Edit.jsx");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_Dashboard_Customer_Closing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Components/Dashboard/Customer/Closing */ "./resources/js/Components/Dashboard/Customer/Closing.jsx");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10515,6 +10849,351 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
+
+
+
+
+function Index(props) {
+  var _props$data = props.data,
+      data = _props$data.data,
+      links = _props$data.links,
+      meta = _props$data.meta;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
+
+  var _useDialog = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+      _useDialog2 = _slicedToArray(_useDialog, 3),
+      addDialogHandler = _useDialog2[0],
+      addCloseTrigger = _useDialog2[1],
+      addTrigger = _useDialog2[2];
+
+  var _useDialog3 = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+      _useDialog4 = _slicedToArray(_useDialog3, 3),
+      UpdateDialogHandler = _useDialog4[0],
+      UpdateCloseTrigger = _useDialog4[1],
+      UpdateTrigger = _useDialog4[2];
+
+  var _useDialog5 = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+      _useDialog6 = _slicedToArray(_useDialog5, 3),
+      ClosingDialogHandler = _useDialog6[0],
+      ClosingCloseTrigger = _useDialog6[1],
+      ClosingTrigger = _useDialog6[2];
+
+  var _useDialog7 = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+      _useDialog8 = _slicedToArray(_useDialog7, 3),
+      destroyDialogHandler = _useDialog8[0],
+      destroyCloseTrigger = _useDialog8[1],
+      destroyTrigger = _useDialog8[2];
+
+  var openUpdateDialog = function openUpdateDialog(data) {
+    setState(data);
+    UpdateDialogHandler();
+  };
+
+  var openClosingDialog = function openClosingDialog(data) {
+    setState(data);
+    ClosingDialogHandler();
+  };
+
+  var openDestroyDialog = function openDestroyDialog(data) {
+    setState(data);
+    destroyDialogHandler();
+  };
+
+  var destroyAction = function destroyAction() {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_8__.Inertia["delete"](route('customers.destroy', state.uuid), {
+      onSuccess: function onSuccess() {
+        return destroyCloseTrigger();
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "container-fluid py-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        trigger: addTrigger,
+        title: "Create New Customer",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Customer_Create__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          close: addCloseTrigger
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        trigger: UpdateTrigger,
+        title: "Update Customer: ".concat(state.name),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Customer_Edit__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          model: state,
+          close: UpdateCloseTrigger
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        trigger: ClosingTrigger,
+        title: "Closing Customer: ".concat(state.name),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_Dashboard_Customer_Closing__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          model: state,
+          close: ClosingCloseTrigger
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        trigger: destroyTrigger,
+        title: "Delete Customer: ".concat(state.name),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          children: "Are you sure to delete this user ?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          className: "modal-footer",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+            type: "button",
+            className: "btn bg-gradient-secondary",
+            "data-bs-dismiss": "modal",
+            children: "Close"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+            type: "submit",
+            onClick: destroyAction,
+            className: "btn bg-gradient-danger",
+            children: "Delete"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "row pb-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          className: "col-12 w-100",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "card h-100 w-100",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "card-header pb-0",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
+                    children: "Customer table"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  className: "col-md-6 d-flex justify-content-end",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                    onClick: addDialogHandler,
+                    type: "button",
+                    className: "btn bg-gradient-success btn-block mb-3",
+                    "data-bs-toggle": "modal",
+                    "data-bs-target": "#exampleModalMessage",
+                    children: "Create New Customer"
+                  })
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "card-body px-0 pt-0 pb-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                className: "table-responsive-xxl p-0",
+                width: "100%",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("table", {
+                  className: "table align-items-center justify-content-center mb-0",
+                  width: "100%",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("thead", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("tr", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-centter",
+                        children: "#"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left",
+                        children: "Name"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left",
+                        children: "Phone"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Address"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Status Ketertarikan"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Cara Ketemu"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Sales Name"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2",
+                        children: "Actions"
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("tbody", {
+                    children: data.map(function (item, index) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("tr", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-center",
+                          children: meta.from + index
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                            className: "d-flex px-2",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                              className: "my-auto",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
+                                className: "mb-0 text-sm",
+                                children: item.name
+                              })
+                            })
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.phone
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "align-middle text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                            className: "d-flex align-items-center text-left",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                              className: "text-xs font-weight-bold mb-0",
+                              children: item.address
+                            })
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.status_ketertarikan
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.metode_ketemu
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.sales_name
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                          className: "align-middle text-center",
+                          width: "10%",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                            children: [item.status_ketertarikan == 'PROSPEK' && auth.user.roles == 'sales' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                              type: "button",
+                              onClick: function onClick() {
+                                return openClosingDialog(item);
+                              },
+                              className: "btn btn-vimeo btn-icon-only mx-2",
+                              title: "Data Closing",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                                className: "btn-inner--icon",
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                                  className: "fas fa-user-alt"
+                                })
+                              })
+                            }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                              type: "button",
+                              onClick: function onClick() {
+                                return openUpdateDialog(item);
+                              },
+                              className: "btn btn-vimeo btn-icon-only mx-2",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                                className: "btn-inner--icon",
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                                  className: "fas fa-pencil-alt"
+                                })
+                              })
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                              type: "button",
+                              onClick: function onClick() {
+                                return openDestroyDialog(item);
+                              },
+                              className: "btn btn-youtube btn-icon-only",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                                className: "btn-inner--icon",
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                                  className: "fas fa-trash"
+                                })
+                              })
+                            })]
+                          })
+                        })]
+                      }, item.id);
+                    })
+                  })]
+                })
+              })
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("nav", {
+        "aria-label": "Page navigation example",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("ul", {
+          className: "pagination justify-content-center",
+          children: meta.links.map(function (link, k) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
+              className: "page-item",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                disabled: link.url == null ? true : false,
+                as: "button",
+                className: "".concat(link.active && 'bg-info', " ").concat(link.url == null && 'btn bg-gradient-secondary text-white', " page-link"),
+                href: link.url || '',
+                dangerouslySetInnerHTML: {
+                  __html: link.label
+                }
+              })
+            }, k);
+          })
+        })
+      })]
+    })
+  });
+}
+
+Index.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: page,
+    title: "Manage Customer"
+  }, page);
+};
+
+/***/ }),
+
+/***/ "./resources/js/Pages/CustomerClosing/Index.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/CustomerClosing/Index.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Index)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Dashboard/Dialog */ "./resources/js/Components/Dashboard/Dialog.jsx");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.jsx");
+/* harmony import */ var _Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Hooks/useDialog */ "./resources/js/Hooks/useDialog.jsx");
+/* harmony import */ var _Components_Dashboard_Customer_Closing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/Dashboard/Customer/Closing */ "./resources/js/Components/Dashboard/Customer/Closing.jsx");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+ // import CreateComponent from '../../Components/Dashboard/Customer/Create';
+// import EditComponent from '../../Components/Dashboard/Customer/Edit';
 
 
 
@@ -10540,213 +11219,222 @@ function Index(props) {
 
   var _useDialog3 = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
       _useDialog4 = _slicedToArray(_useDialog3, 3),
-      UpdateDialogHandler = _useDialog4[0],
-      UpdateCloseTrigger = _useDialog4[1],
-      UpdateTrigger = _useDialog4[2];
+      ClosingDialogHandler = _useDialog4[0],
+      ClosingCloseTrigger = _useDialog4[1],
+      ClosingTrigger = _useDialog4[2];
 
-  var _useDialog5 = (0,_Hooks_useDialog__WEBPACK_IMPORTED_MODULE_4__["default"])(),
-      _useDialog6 = _slicedToArray(_useDialog5, 3),
-      destroyDialogHandler = _useDialog6[0],
-      destroyCloseTrigger = _useDialog6[1],
-      destroyTrigger = _useDialog6[2];
+  var assetPath = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.assetPath; // const destroyAction = () => {
+  //     Inertia.delete(
+  //         route('customers.destroy', state.uuid),
+  //         { onSuccess: () => destroyCloseTrigger() });
+  // }
 
-  var openUpdateDialog = function openUpdateDialog(data) {
-    setState(data);
-    UpdateDialogHandler();
-  };
-
-  var openDestroyDialog = function openDestroyDialog(data) {
-    setState(data);
-    destroyDialogHandler();
-  };
-
-  var destroyAction = function destroyAction() {
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_7__.Inertia["delete"](route('customers.destroy', state.uuid), {
-      onSuccess: function onSuccess() {
-        return destroyCloseTrigger();
-      }
-    });
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "container-fluid py-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        trigger: addTrigger,
-        title: "Create New Customer",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Customer_Create__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          close: addCloseTrigger
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        trigger: UpdateTrigger,
-        title: "Update Customer: ".concat(state.name),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Customer_Edit__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          model: state,
-          close: UpdateCloseTrigger
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_Components_Dashboard_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        trigger: destroyTrigger,
-        title: "Delete Customer: ".concat(state.name),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-          children: "Are you sure to delete this user ?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "modal-footer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-            type: "button",
-            className: "btn bg-gradient-secondary",
-            "data-bs-dismiss": "modal",
-            children: "Close"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-            type: "submit",
-            onClick: destroyAction,
-            className: "btn bg-gradient-danger",
-            children: "Delete"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "row pb-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "col-12 w-100",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "card h-100 w-100",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "card-header pb-0",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                   className: "col-md-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h6", {
-                    children: "Customer table"
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h6", {
+                    children: "Customer Closing table"
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "col-md-6 d-flex justify-content-end",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                    onClick: addDialogHandler,
-                    type: "button",
-                    className: "btn bg-gradient-success btn-block mb-3",
-                    "data-bs-toggle": "modal",
-                    "data-bs-target": "#exampleModalMessage",
-                    children: "Create New Customer"
-                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  className: "col-md-6 d-flex justify-content-end"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "card-body px-0 pt-0 pb-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "table-responsive-xxl p-0",
                 width: "100%",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("table", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("table", {
                   className: "table align-items-center justify-content-center mb-0",
                   width: "100%",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("thead", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("thead", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-centter",
                         children: "#"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left",
                         children: "Name"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left",
                         children: "Phone"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
                         children: "Address"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
-                        children: "Cara Ketemu"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
                         children: "Status Ketertarikan"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Cara Ketemu"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
                         children: "Sales Name"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2",
-                        children: "Actions"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Package"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Promo"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Rumah"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Lat"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Long"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2"
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("tbody", {
                     children: data.map(function (item, index) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-center",
                           children: meta.from + index
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                             className: "d-flex px-2",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                               className: "my-auto",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h6", {
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h6", {
                                 className: "mb-0 text-sm",
                                 children: item.name
-                              })
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("table", {
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("tr", {
+                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    colSpan: 2,
+                                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                                      src: "".concat(assetPath, "/storage/").concat(item.ktp_image),
+                                      style: {
+                                        maxWidth: '150px',
+                                        maxHeight: '150px'
+                                      }
+                                    })
+                                  })
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: "KTP NIK :"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: item.ktp_nik
+                                  })]
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: "KTP Nama :"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: item.ktp_nama
+                                  })]
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: "KTP address :"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: item.ktp_address
+                                  })]
+                                })]
+                              })]
                             })
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                             className: "text-xs font-weight-bold",
                             children: item.phone
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "align-middle text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                             className: "d-flex align-items-center text-left",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                               className: "text-xs font-weight-bold mb-0",
                               children: item.address
                             })
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                             className: "text-xs font-weight-bold",
                             children: item.status_ketertarikan
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                             className: "text-xs font-weight-bold",
                             children: item.metode_ketemu
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "text-left",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                             className: "text-xs font-weight-bold",
                             children: item.sales_name
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item["package"]
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.promo
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                            className: "d-flex px-2",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                              className: "my-auto",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h6", {
+                                className: "mb-0 text-sm",
+                                children: item.rumah_address
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("table", {
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("tr", {
+                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                                      src: "".concat(assetPath, "/storage/").concat(item.rumah_foto),
+                                      style: {
+                                        maxWidth: '150px',
+                                        maxHeight: '150px'
+                                      }
+                                    })
+                                  })
+                                })
+                              })]
+                            })
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.rumah_lat
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.rumah_long
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                           className: "align-middle text-center",
                           width: "10%",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                              type: "button",
-                              onClick: function onClick() {
-                                return openUpdateDialog(item);
-                              },
-                              className: "btn btn-vimeo btn-icon-only mx-2",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                                className: "btn-inner--icon",
-                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                                  className: "fas fa-pencil-alt"
-                                })
-                              })
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                              type: "button",
-                              onClick: function onClick() {
-                                return openDestroyDialog(item);
-                              },
-                              className: "btn btn-youtube btn-icon-only",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                                className: "btn-inner--icon",
-                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                                  className: "fas fa-trash"
-                                })
-                              })
-                            })]
-                          })
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {})
                         })]
                       }, item.id);
                     })
@@ -10756,14 +11444,14 @@ function Index(props) {
             })]
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("nav", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("nav", {
         "aria-label": "Page navigation example",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("ul", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("ul", {
           className: "pagination justify-content-center",
           children: meta.links.map(function (link, k) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
               className: "page-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 disabled: link.url == null ? true : false,
                 as: "button",
                 className: "".concat(link.active && 'bg-info', " ").concat(link.url == null && 'btn bg-gradient-secondary text-white', " page-link"),
@@ -10781,9 +11469,9 @@ function Index(props) {
 }
 
 Index.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_3__["default"], {
     children: page,
-    title: "Manage Customer"
+    title: "Manage Customer Closing"
   }, page);
 };
 
@@ -59124,6 +59812,8 @@ var map = {
 	"./Auth/Register.jsx": "./resources/js/Pages/Auth/Register.jsx",
 	"./Customer/Index": "./resources/js/Pages/Customer/Index.jsx",
 	"./Customer/Index.jsx": "./resources/js/Pages/Customer/Index.jsx",
+	"./CustomerClosing/Index": "./resources/js/Pages/CustomerClosing/Index.jsx",
+	"./CustomerClosing/Index.jsx": "./resources/js/Pages/CustomerClosing/Index.jsx",
 	"./Dashboard": "./resources/js/Pages/Dashboard.jsx",
 	"./Dashboard.jsx": "./resources/js/Pages/Dashboard.jsx",
 	"./Home": "./resources/js/Pages/Home.jsx",

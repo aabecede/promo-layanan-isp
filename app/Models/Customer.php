@@ -33,7 +33,8 @@ class Customer extends Model
     public static $statusKetertarikan = [
         'TERTARIK',
         'RAGU',
-        'CLOSING'
+        'PROSPEK'
+        // 'CLOSING'
     ];
 
     /**scope */

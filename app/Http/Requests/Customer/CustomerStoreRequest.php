@@ -26,25 +26,41 @@ class CustomerStoreRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => [
-                'required',
-                Rule::unique('customer', 'phone')
+        if(!empty($this->is_closing )){
+            $rules = [
+                'ktp_image' => 'required|mimes:jpg,jpeg,png',
+                'ktp_nama' => 'required',
+                'ktp_nik' => 'required',
+                'ktp_address' => 'required',
+                'package_id' => 'required',
+                'promo_id' => 'required',
+                'rumah_foto' => 'required|mimes:png,jpg,jpeg',
+                'rumah_address' => 'required',
+                'rumah_lat' => 'required',
+                'rumah_long' => 'required',
+            ];
+        }
+        else{
+            $rules = [
+                'name' => 'required',
+                'address' => 'required',
+                'phone' => [
+                    'required',
+                    Rule::unique('customer', 'phone')
                     ->ignore($this->customer, 'id')
-                    ->whereNull('deleted_at')
-            ],
-            'metode_ketemu' =>
-            ['required', Rule::in(Customer::$metodeKetemu)],
-            'status_ketertarikan' =>
-            ['required', Rule::in(Customer::$statusKetertarikan)],
-            'sales_id' =>
-            [
-                'required',
-                Rule::in(User::where('roles', 'sales')->get()->pluck('id')->toArray())
-            ],
-        ];
+                        ->whereNull('deleted_at')
+                ],
+                'metode_ketemu' =>
+                ['required', Rule::in(Customer::$metodeKetemu)],
+                'status_ketertarikan' =>
+                ['required', Rule::in(Customer::$statusKetertarikan)],
+                'sales_id' =>
+                [
+                    'required',
+                    Rule::in(User::where('roles', 'sales')->get()->pluck('id')->toArray())
+                ],
+            ];
+        }
         return $rules;
     }
 

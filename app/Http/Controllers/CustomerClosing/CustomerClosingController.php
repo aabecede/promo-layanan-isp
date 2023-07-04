@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Customer;
+namespace App\Http\Controllers\CustomerClosing;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Customer\CustomerStoreRequest;
+use App\Http\Resources\CustomerClosingResource;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
-use App\Models\Packages;
-use App\Models\Promo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CustomerController extends Controller
+class CustomerClosingController extends Controller
 {
-    protected $publicPath = 'upload/customer-closing';
     /**
      * Display a listing of the resource.
      *
@@ -24,22 +22,18 @@ class CustomerController extends Controller
     {
         $customer = Customer::with(['sales:id,name'])
             ->getAllData()
-            ->where('status_ketertarikan', '!=', 'CLOSING')
+            ->where('status_ketertarikan', 'CLOSING')
             ->paginate(10);
-        $data = CustomerResource::collection($customer);
+        $data = CustomerClosingResource::collection($customer);
         $metodeKetemu = Customer::$metodeKetemu;
         $statusKetertarikan = Customer::$statusKetertarikan;
         $userSales = User::getSalesUser()->get();
-        $packages = Packages::select('*', 'id as uuid')->get();
-        $promos = Promo::select('*', 'id as uuid')->get();
 
-        return inertia('Customer/Index', [
+        return inertia('CustomerClosing/Index', [
             'data' => $data,
             'userSales' => $userSales,
             'metodeKetemu' => $metodeKetemu,
             'statusKetertarikan' => $statusKetertarikan,
-            'packages' => $packages,
-            'promos' => $promos,
         ]);
     }
 
@@ -154,29 +148,8 @@ class CustomerController extends Controller
 
     public function updateClosing(CustomerStoreRequest $request, Customer $customer){
         try {
-            $public_path = $this->publicPath.'/'.date('Y-m-d').'/'.str()->slug($customer->name);
-            $rumah_foto = $request->file('rumah_foto')->store($public_path, 'public');
-            $ktp_image = $request->file('ktp_image')->store($public_path, 'public');
             DB::beginTransaction();
-
-            $customer->ktp_image = $ktp_image;
-            $customer->ktp_nama = $request->ktp_nama;
-            $customer->ktp_nik = $request->ktp_nik;
-            $customer->ktp_address = $request->ktp_address;
-            $customer->package_id = $request->package_id;
-            $customer->promo_id = $request->promo_id;
-            $customer->rumah_foto = $rumah_foto;
-            $customer->rumah_address = $request->rumah_address;
-            $customer->rumah_lat = $request->rumah_lat;
-            $customer->rumah_long = $request->rumah_long;
-            $customer->status_ketertarikan = 'CLOSING';
-            $customer->save();
-
             DB::commit();
-            return back()->with([
-                'type' => 'success',
-                'message' => 'Data has been saved',
-            ]);
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
