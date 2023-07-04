@@ -11,7 +11,7 @@ trait CrudTrait
         parent::boot();
         static::creating(function($model){
             // $model->id = Str::uuid();
-            $model->created_by = auth()->id() ?? null;
+            // $model->created_by = auth()->id() ?? null;
         });
         self::updating(function($model){
             $model->updated_by = auth()->id() ?? null;
