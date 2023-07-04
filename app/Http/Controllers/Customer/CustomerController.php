@@ -170,6 +170,7 @@ class CustomerController extends Controller
             $customer->rumah_lat = $request->rumah_lat;
             $customer->rumah_long = $request->rumah_long;
             $customer->status_ketertarikan = 'CLOSING';
+            $customer->closing_at = now();
             $customer->save();
 
             DB::commit();
