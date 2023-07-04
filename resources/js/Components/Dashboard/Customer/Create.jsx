@@ -3,15 +3,15 @@ import React from 'react'
 
 export default function Create({close}) {
 
-    const {data, setData, post, reset, errors} = useForm({
-        name: '', phone: '',
-        address: '', metode_ketemu: '',
-        status_ketertarikan: '', sales_id: '',
-    });
     const { metodeKetemu } = usePage().props;
     const { statusKetertarikan } = usePage().props;
     const { userSales } = usePage().props;
     const { auth } = usePage().props;
+    const {data, setData, post, reset, errors} = useForm({
+        name: '', phone: '',
+        address: '', metode_ketemu: '',
+        status_ketertarikan: '', sales_id: auth.user.id,
+    });
     const onChange = (e) => setData({ ...data, [e.target.id]: e.target.value });
 
     const onSubmit = (e) => {
@@ -24,6 +24,7 @@ export default function Create({close}) {
             },
         });
     }
+    const isHideSales = auth.user.roles == 'sales' ? 'd-none' : 'show';
 
     return (
         <>
@@ -65,15 +66,15 @@ export default function Create({close}) {
                             </select>
                             {errors && <div className='text-danger mt-1'>{errors.status_ketertarikan}</div>}
                         </div>
-                        <div className="form-group">
+                        <div className={`${isHideSales} form-group`}>
                             <label htmlFor="sales_id" className="col-form-label">Sales:</label>
                             {userSales.length == 0 ? (<a href={route('users.index')} target="_blank"> Buat Sales </a>) : ''}
                             <select name="sales_id" onChange={onChange} id="sales_id" disabled={userSales.length==0? 'disabled' : ''} className="form-control" style={{ width: '100% !important' }}
-                                value={(auth?.id ?? data?.sales_id)}
+                                value={(auth?.user?.id)}
                             >
                                 <option> -Pilih salah satu- </option>
                                 {userSales.map((sales, index) => (
-                                    <option key={index} value={sales.id}>{sales.name}</option>
+                                    <option key={index} value={sales.id} >{sales.name}</option>
                                 ))}
                             </select>
                             {errors && <div className='text-danger mt-1'>{errors.sales_id}</div>}

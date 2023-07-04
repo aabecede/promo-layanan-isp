@@ -19,10 +19,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data = CustomerResource::collection(Customer::latest()->paginate(10));
+        $customer = Customer::with(['sales:id,name'])->getAllData()->paginate(10);
+        $data = CustomerResource::collection($customer);
         $metodeKetemu = Customer::$metodeKetemu;
         $statusKetertarikan = Customer::$statusKetertarikan;
-        $userSales = User::where('roles', 'sales')->get();
+        $userSales = User::getSalesUser()->get();
 
         return inertia('Customer/Index', [
             'data' => $data,

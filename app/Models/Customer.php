@@ -36,7 +36,23 @@ class Customer extends Model
         'CLOSING'
     ];
 
-
+    /**scope */
+    public function scopeGetAllData($query){
+        if(auth()->user()->roles == 'super-admin'){
+            return $query->latest();
+        }
+        elseif(auth()->user()->roles == 'marketing'){
+            $userSales = User::where('created_by', auth()->user()->id)->select('id')->get()->pluck('id')->toArray();
+            return $query->where(function($q) use ($userSales){
+                $q->whereIn('created_by', $userSales)
+                ->orWhere('created_by', auth()->user()->id);
+            })->latest();
+        }
+        elseif (auth()->user()->roles == 'sales') {
+            return $query->where('sales_id', auth()->user()->id)->latest();
+        }
+        return $query;
+    }
 
     /** Relation
      * do your code

@@ -24,6 +24,7 @@ class CustomerResource extends JsonResource
             'metode_ketemu' => $this->metode_ketemu,
             'status_ketertarikan' => $this->status_ketertarikan,
             'created_at' => $this->created_at,
+            'sales_name' => $this->sales->name
         ];
     }
 }

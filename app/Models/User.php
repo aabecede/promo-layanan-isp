@@ -57,6 +57,16 @@ class User extends Authenticatable
             return $query->where('created_by', auth()->user()->id);
         }
     }
+
+    public function scopeGetSalesUser($query){
+        $query = $query->where('roles', 'sales');
+        if(auth()->user()->roles == 'super-admin'){
+            return $query;
+        }
+        else if(auth()->user()->roles == 'marketing'){
+            return $query->where('created_by', auth()->user()->id);
+        }
+    }
     /**relasi */
     /**attribute */
     public function setPasswordAttribute($password) {

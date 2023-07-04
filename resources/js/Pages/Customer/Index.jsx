@@ -71,9 +71,11 @@ export default function Index(props) {
                                             <tr>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-centter">#</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left">Name</th>
+                                                <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-left">Phone</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Address</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Cara Ketemu</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Status Ketertarikan</th>
+                                                <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Sales Name</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Actions</th>
                                             </tr>
                                         </thead>
@@ -101,6 +103,9 @@ export default function Index(props) {
                                                     </td>
                                                     <td className='text-left'>
                                                         <span className="text-xs font-weight-bold">{item.metode_ketemu}</span>
+                                                    </td>
+                                                    <td className='text-left'>
+                                                        <span className="text-xs font-weight-bold">{item.sales_name}</span>
                                                     </td>
                                                     <td className="align-middle text-center" width="10%">
                                                         <div>
