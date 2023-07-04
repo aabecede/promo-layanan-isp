@@ -33,7 +33,7 @@ class UserRequest extends FormRequest
             'password' => (empty($this->user->password)) ? ['required', Password::defaults()] : '',
             'roles' => [
                 'required',
-                Rule::in(User::$roles),
+                Rule::in(User::$roles[auth()->user()->roles]),
             ]
             // 'address' => ['required'],
         ];

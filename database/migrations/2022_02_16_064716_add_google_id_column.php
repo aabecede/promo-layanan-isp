@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('google_id')->nullable();
             $table->text('google_access_token')->nullable();
             $table->text('google_refresh_token')->nullable();
             $table->string('google_expires_in')->nullable();
+            $table->softDeletes();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
         });
     }
 

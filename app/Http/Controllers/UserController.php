@@ -12,8 +12,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = UserResource::collection(User::latest()->paginate(10));
-        $userRoles = User::$roles;
+        $users = UserResource::collection(User::getAllUser()->paginate(10));
+        $userRoles = User::$roles[auth()->user()->roles];
         return inertia('Users/Index', [
             'users' => $users,
             'userRoles' => $userRoles

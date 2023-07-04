@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('modem',20);
             $table->string('tv_chanel',20);
             $table->string('jumlah_perangkat',20);
+            $table->string('status')->default('aktif')->comment('aktif / tidak aktif');
         });
     }
 
@@ -45,6 +46,7 @@ return new class extends Migration
                 'modem',
                 'tv_chanel',
                 'jumlah_perangkat',
+                'status'
             ]);
         });
     }
