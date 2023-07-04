@@ -1,6 +1,7 @@
 import { useForm, usePage } from '@inertiajs/inertia-react'
 import React, { useState } from 'react'
-import Select from 'react-select/creatable';
+import SelectCreate from 'react-select/creatable';
+import Select from 'react-select';
 
 export default function Create({ close }) {
 
@@ -15,12 +16,14 @@ export default function Create({ close }) {
         modem: '',
         tv_chanel: '',
         jumlah_perangkat: '',
+        status: '',
     });
     const { dataDynamic } = usePage().props;
     const { dataModem } = usePage().props;
     const { dataTv_chanel } = usePage().props;
     const { dataJumlah_perangkat } = usePage().props;
     const { module } = usePage().props;
+    const { dataStatus } = usePage().props;
     const { auth } = usePage().props;
     const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -98,7 +101,7 @@ export default function Create({ close }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone" className="col-form-label">Dynamic:</label>
-                        <Select
+                        <SelectCreate
                             isClearable
                             options={dataDynamic}
                             onChange={handleSelectChangeDynamic}
@@ -107,7 +110,7 @@ export default function Create({ close }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone" className="col-form-label">Modem:</label>
-                        <Select
+                        <SelectCreate
                             isClearable
                             options={dataModem}
                             onChange={handleSelectChangeModem}
@@ -115,8 +118,8 @@ export default function Create({ close }) {
                         {errors && <div className='text-danger mt-1'>{errors.modem}</div>}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="phone" className="col-form-label">tv_chanel:</label>
-                        <Select
+                        <label htmlFor="phone" className="col-form-label">TV Chanel:</label>
+                        <SelectCreate
                             isClearable
                             options={dataTv_chanel}
                             onChange={handleSelectChangeTv_chanel}
@@ -124,13 +127,25 @@ export default function Create({ close }) {
                         {errors && <div className='text-danger mt-1'>{errors.tv_chanel}</div>}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="phone" className="col-form-label">jumlah_perangkat:</label>
-                        <Select
+                        <label htmlFor="phone" className="col-form-label">Jumlah Perangkat:</label>
+                        <SelectCreate
                             isClearable
                             options={dataJumlah_perangkat}
                             onChange={handleSelectChangeJumlah_perangkat}
                         />
                         {errors && <div className='text-danger mt-1'>{errors.jumlah_perangkat}</div>}
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="phone" className="col-form-label">Status:</label>
+                        <select class="form-control" name="status" id="status" onChange={onChange}>
+                            <option> Pilih Salah satu </option>
+                            {dataStatus.map((item) => (
+                                <option key={item.value} value={item.value}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+                        {errors && <div className='text-danger mt-1'>{errors.status}</div>}
                     </div>
                 </div>
                 <div className="modal-footer">

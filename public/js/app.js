@@ -7596,8 +7596,8 @@ function ContentSidebar() {
   } else if (auth.user.roles == 'sales') {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        className: "".concat(route().current('users.*') && 'active', " nav-link"),
-        href: route('users.index'),
+        className: "".concat(route().current('customers.*') && 'active', " nav-link"),
+        href: route('customers.index'),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
@@ -8340,6 +8340,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 function Create(_ref) {
   var close = _ref.close;
 
@@ -8353,7 +8354,8 @@ function Create(_ref) {
     dynamic: '',
     modem: '',
     tv_chanel: '',
-    jumlah_perangkat: ''
+    jumlah_perangkat: '',
+    status: ''
   }),
       data = _useForm.data,
       setData = _useForm.setData,
@@ -8366,6 +8368,7 @@ function Create(_ref) {
   var dataTv_chanel = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataTv_chanel;
   var dataJumlah_perangkat = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataJumlah_perangkat;
   var module = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.module;
+  var dataStatus = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataStatus;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
 
   var onChange = function onChange(e) {
@@ -8550,7 +8553,7 @@ function Create(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             htmlFor: "phone",
             className: "col-form-label",
-            children: "tv_chanel:"
+            children: "TV Chanel:"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select_creatable__WEBPACK_IMPORTED_MODULE_2__["default"], {
             isClearable: true,
             options: dataTv_chanel,
@@ -8564,7 +8567,7 @@ function Create(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             htmlFor: "phone",
             className: "col-form-label",
-            children: "jumlah_perangkat:"
+            children: "Jumlah Perangkat:"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select_creatable__WEBPACK_IMPORTED_MODULE_2__["default"], {
             isClearable: true,
             options: dataJumlah_perangkat,
@@ -8572,6 +8575,29 @@ function Create(_ref) {
           }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "text-danger mt-1",
             children: errors.jumlah_perangkat
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "phone",
+            className: "col-form-label",
+            children: "Status:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            "class": "form-control",
+            name: "status",
+            id: "status",
+            onChange: onChange,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: " Pilih Salah satu "
+            }), dataStatus.map(function (item) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                value: item.value,
+                children: item.label
+              }, item.value);
+            })]
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.status
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -8620,6 +8646,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 function Edit(_ref) {
   var close = _ref.close,
       model = _ref.model;
@@ -8634,7 +8661,8 @@ function Edit(_ref) {
     dynamic: model.dynamic,
     modem: model.modem,
     tv_chanel: model.tv_chanel,
-    jumlah_perangkat: model.jumlah_perangkat
+    jumlah_perangkat: model.jumlah_perangkat,
+    status: model.status
   }),
       data = _useForm.data,
       setData = _useForm.setData,
@@ -8646,6 +8674,7 @@ function Edit(_ref) {
   var dataModem = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataModem;
   var dataTv_chanel = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataTv_chanel;
   var dataJumlah_perangkat = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataJumlah_perangkat;
+  var dataStatus = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.dataStatus;
   var module = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.module;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
 
@@ -8676,7 +8705,8 @@ function Edit(_ref) {
       dynamic: model.dynamic,
       modem: model.modem,
       tv_chanel: model.tv_chanel,
-      jumlah_perangkat: model.jumlah_perangkat
+      jumlah_perangkat: model.jumlah_perangkat,
+      status: model.status
     }));
   }, [model]);
   /**start */
@@ -8874,7 +8904,7 @@ function Edit(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             htmlFor: "phone",
             className: "col-form-label",
-            children: "jumlah_perangkat:"
+            children: "Jumlah Perangkat:"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select_creatable__WEBPACK_IMPORTED_MODULE_2__["default"], {
             defaultValue: [{
               value: model.jumlah_perangkat,
@@ -8886,6 +8916,30 @@ function Edit(_ref) {
           }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "text-danger mt-1",
             children: errors.jumlah_perangkat
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "status",
+            className: "col-form-label",
+            children: "Status:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            "class": "form-control",
+            name: "status",
+            id: "status",
+            onChange: onChange,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: " Pilih Salah satu "
+            }), dataStatus.map(function (item) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                value: item.value,
+                selected: item.value === model.status,
+                children: item.label
+              }, item.value);
+            })]
+          }), errors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-danger mt-1",
+            children: errors.status
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -11380,6 +11434,7 @@ function Index(props) {
       data = _props$data.data,
       links = _props$data.links,
       meta = _props$data.meta;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -11422,6 +11477,8 @@ function Index(props) {
     });
   };
 
+  var valueToCheck = auth.user.roles;
+  var isNotSales = ['super-admin', 'marketing'].includes(valueToCheck);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "container-fluid py-4",
@@ -11474,14 +11531,14 @@ function Index(props) {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "col-md-6 d-flex justify-content-end",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                  children: isNotSales ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                     onClick: addDialogHandler,
                     type: "button",
                     className: "btn bg-gradient-success btn-block mb-3",
                     "data-bs-toggle": "modal",
                     "data-bs-target": "#exampleModalMessage",
                     children: "Create New Package"
-                  })
+                  }) : ''
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -11527,6 +11584,9 @@ function Index(props) {
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
                         children: "Jumlah Perangkat"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                        className: "text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2",
+                        children: "Status"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                         className: "text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2",
                         children: "Actions"
@@ -11608,9 +11668,15 @@ function Index(props) {
                             children: item.jumlah_perangkat
                           })
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                          className: "text-left",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                            className: "text-xs font-weight-bold",
+                            children: item.status
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
                           className: "align-middle text-center",
                           width: "10%",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                          children: isNotSales ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                               type: "button",
                               onClick: function onClick() {
@@ -11636,7 +11702,7 @@ function Index(props) {
                                 })
                               })
                             })]
-                          })
+                          }) : ''
                         })]
                       }, item.id);
                     })

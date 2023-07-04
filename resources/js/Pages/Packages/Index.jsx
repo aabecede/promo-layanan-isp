@@ -10,6 +10,7 @@ import { Inertia } from '@inertiajs/inertia';
 export default function Index(props) {
 
     const { data: data, links, meta } = props.data;
+    const { auth } = usePage().props;
     const [state, setState] = useState([])
     const [addDialogHandler, addCloseTrigger, addTrigger] = useDialog()
     const [UpdateDialogHandler, UpdateCloseTrigger, UpdateTrigger] = useDialog()
@@ -30,13 +31,14 @@ export default function Index(props) {
             { onSuccess: () => destroyCloseTrigger() });
     }
 
+    const valueToCheck = auth.user.roles;
+    const isNotSales = ['super-admin', 'marketing'].includes(valueToCheck);
     return (
         <>
             <div className="container-fluid py-4">
                 <Dialog trigger={addTrigger} title="Create New Package">
                     <CreateComponent close={addCloseTrigger} />
                 </Dialog>
-
                 <Dialog trigger={UpdateTrigger} title={`Update Package: ${state.name}`}>
                     <EditComponent model={state} close={UpdateCloseTrigger} />
                 </Dialog>
@@ -58,9 +60,12 @@ export default function Index(props) {
                                         <h6>Package table</h6>
                                     </div>
                                     <div className="col-md-6 d-flex justify-content-end">
-                                        <button onClick={addDialogHandler} type="button" className="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
-                                            Create New Package
-                                        </button>
+                                        {isNotSales ? (
+                                            <button onClick={addDialogHandler} type="button" className="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
+                                                Create New Package
+                                            </button>
+                                        ) : ''}
+
                                     </div>
                                 </div>
                             </div>
@@ -80,6 +85,7 @@ export default function Index(props) {
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Modem</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Tv Chanel</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Jumlah Perangkat</th>
+                                                <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-left opacity-7 ps-2">Status</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Actions</th>
                                             </tr>
                                         </thead>
@@ -123,15 +129,20 @@ export default function Index(props) {
                                                     <td className='text-left'>
                                                         <span className="text-xs font-weight-bold">{item.jumlah_perangkat}</span>
                                                     </td>
+                                                    <td className='text-left'>
+                                                        <span className="text-xs font-weight-bold">{item.status}</span>
+                                                    </td>
                                                     <td className="align-middle text-center" width="10%">
-                                                        <div>
-                                                            <button type="button" onClick={() => openUpdateDialog(item)} className="btn btn-vimeo btn-icon-only mx-2">
-                                                                <span className="btn-inner--icon"><i className="fas fa-pencil-alt"></i></span>
-                                                            </button>
-                                                            <button type="button" onClick={() => openDestroyDialog(item)} className="btn btn-youtube btn-icon-only">
-                                                                <span className="btn-inner--icon"><i className="fas fa-trash"></i></span>
-                                                            </button>
-                                                        </div>
+                                                        {isNotSales ? (
+                                                            <div>
+                                                                <button type="button" onClick={() => openUpdateDialog(item)} className="btn btn-vimeo btn-icon-only mx-2">
+                                                                    <span className="btn-inner--icon"><i className="fas fa-pencil-alt"></i></span>
+                                                                </button>
+                                                                <button type="button" onClick={() => openDestroyDialog(item)} className="btn btn-youtube btn-icon-only">
+                                                                    <span className="btn-inner--icon"><i className="fas fa-trash"></i></span>
+                                                                </button>
+                                                            </div>
+                                                        ) : ''}
                                                     </td>
                                                 </tr>
                                             ))}

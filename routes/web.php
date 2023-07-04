@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 
-    Route::apiResource('users', UserController::class);
+    Route::apiResource('users', UserController::class)->middleware(['auth.superMarketing']);
     Route::apiResource('customers', CustomerController::class);
     Route::apiResource('packages', PackagesController::class);
     Route::apiResource('promos', PromoController::class);

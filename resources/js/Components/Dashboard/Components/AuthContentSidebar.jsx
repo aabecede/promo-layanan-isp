@@ -62,7 +62,7 @@ export default function ContentSidebar() {
     else if(auth.user.roles == 'sales'){
         return (
             <li>
-                <Link className={`${route().current('users.*') && 'active'} nav-link`} href={route('users.index')}>
+                <Link className={`${route().current('customers.*') && 'active'} nav-link`} href={route('customers.index')}>
                     <div className="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i className="fas fa-user-lock text-warning text-sm opacity-10" />
                     </div>

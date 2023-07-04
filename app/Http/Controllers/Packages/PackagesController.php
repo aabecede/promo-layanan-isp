@@ -17,7 +17,14 @@ class PackagesController extends Controller
      */
     public function index()
     {
-        $data = PackagesResource::collection(Packages::latest()->paginate(10));
+        $data = PackagesResource::collection(Packages::getAllData()->paginate(10));
+        $dataStatus = collect(Packages::$status)->map(function($q){
+            return ([
+                'value' => $q,
+                'label' => $q
+            ]);
+        })
+        ->toArray();
         $dataDynamic = Packages::select('dynamic')->groupBy('dynamic')
             ->get()
             ->map(function($q){
@@ -54,13 +61,15 @@ class PackagesController extends Controller
                 ];
             })
             ->toArray();
-        return inertia('Packages/Index', [
+        // dd($dataJumlah_perangkat, $dataStatus);
+            return inertia('Packages/Index', [
             'data' => $data,
             'module' => 'packages',
             'dataDynamic' => $dataDynamic,
             'dataModem' => $dataModem,
             'dataTv_chanel' => $dataTv_chanel,
-            'dataJumlah_perangkat' => $dataJumlah_perangkat
+            'dataJumlah_perangkat' => $dataJumlah_perangkat,
+            'dataStatus' => $dataStatus
         ]);
     }
 
@@ -95,6 +104,7 @@ class PackagesController extends Controller
                 'modem' => $request->modem,
                 'tv_chanel' => $request->tv_chanel,
                 'jumlah_perangkat' => $request->jumlah_perangkat,
+                'status' => $request->status,
             ]);
             DB::commit();
             return back()->with([
@@ -153,6 +163,7 @@ class PackagesController extends Controller
             $packages->modem = $request->modem;
             $packages->tv_chanel = $request->tv_chanel;
             $packages->jumlah_perangkat = $request->jumlah_perangkat;
+            $packages->status = $request->status;
             $packages->save();
             DB::commit();
             return back()->with([

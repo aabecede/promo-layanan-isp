@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Packages;
 
+use App\Models\Packages;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PackagesStoreRequest extends FormRequest
 {
@@ -35,6 +37,9 @@ class PackagesStoreRequest extends FormRequest
             'modem' => 'required',
             'tv_chanel' => 'required',
             'jumlah_perangkat' => 'required',
+            'status' => [
+                'required', Rule::in(Packages::$status)
+            ]
         ];
     }
 

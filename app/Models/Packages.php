@@ -18,6 +18,10 @@ class Packages extends Model
     protected $hidden = ['id'];
     //public $incrementing = false;
     //protected $keyType = 'string';
+    public static $status = [
+        'aktif',
+        'tidak aktif',
+    ];
     public function delete()
     {
         parent::update([
@@ -27,7 +31,15 @@ class Packages extends Model
     }
 
 
-
+    /**scope */
+    public function scopeGetAllData($query){
+        if(in_array(auth()->user()->roles, ['super-admin', 'marketing'])){
+            return $query->latest();
+        }
+        elseif(auth()->user()->roles == 'sales'){
+            return $query->where('status', 'aktif')->latest();
+        }
+    }
     /** Relation
      * do your code
     */

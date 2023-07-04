@@ -1,6 +1,7 @@
 import { useForm, usePage } from '@inertiajs/inertia-react'
 import React, { useEffect } from 'react'
-import Select from 'react-select/creatable';
+import SelectCreate from 'react-select/creatable';
+import Select from 'react-select';
 
 export default function Edit({ close, model }) {
 
@@ -15,12 +16,14 @@ export default function Edit({ close, model }) {
         modem: model.modem,
         tv_chanel: model.tv_chanel,
         jumlah_perangkat: model.jumlah_perangkat,
+        status: model.status,
     });
 
     const { dataDynamic } = usePage().props;
     const { dataModem } = usePage().props;
     const { dataTv_chanel } = usePage().props;
     const { dataJumlah_perangkat } = usePage().props;
+    const { dataStatus } = usePage().props;
     const { module } = usePage().props;
     const { auth } = usePage().props;
     const onChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
@@ -50,7 +53,8 @@ export default function Edit({ close, model }) {
             dynamic: model.dynamic,
             modem: model.modem,
             tv_chanel: model.tv_chanel,
-            jumlah_perangkat: model.jumlah_perangkat
+            jumlah_perangkat: model.jumlah_perangkat,
+            status: model.status
         });
     }, [model]);
 
@@ -118,7 +122,7 @@ export default function Edit({ close, model }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="dynamic" className="col-form-label">Dynamic:</label>
-                        <Select
+                        <SelectCreate
                             defaultValue={[{ value:model.dynamic, label:model.dynamic }]}
                             isClearable
                             options={dataDynamic}
@@ -128,7 +132,7 @@ export default function Edit({ close, model }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="modem" className="col-form-label">Modem:</label>
-                        <Select
+                        <SelectCreate
                             defaultValue={[{ value:model.modem, label:model.modem }]}
                             isClearable
                             options={dataModem}
@@ -138,7 +142,7 @@ export default function Edit({ close, model }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone" className="col-form-label">Tv Chanel:</label>
-                        <Select
+                        <SelectCreate
                             defaultValue={[{ value:model.tv_chanel, label:model.tv_chanel }]}
                             isClearable
                             options={dataTv_chanel}
@@ -147,14 +151,26 @@ export default function Edit({ close, model }) {
                         {errors && <div className='text-danger mt-1'>{errors.tv_chanel}</div>}
                     </div>
                     <div className="form-group">
-                        <label htmlFor="phone" className="col-form-label">jumlah_perangkat:</label>
-                        <Select
+                        <label htmlFor="phone" className="col-form-label">Jumlah Perangkat:</label>
+                        <SelectCreate
                             defaultValue={[{ value:model.jumlah_perangkat, label:model.jumlah_perangkat }]}
                             isClearable
                             options={dataJumlah_perangkat}
                             onChange={handleSelectChangeJumlah_perangkat}
                         />
                         {errors && <div className='text-danger mt-1'>{errors.jumlah_perangkat}</div>}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="status" className="col-form-label">Status:</label>
+                        <select class="form-control" name="status" id="status" onChange={onChange}>
+                            <option> Pilih Salah satu </option>
+                            {dataStatus.map((item) => (
+                                <option key={item.value} value={item.value} selected={item.value === model.status}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+                        {errors && <div className='text-danger mt-1'>{errors.status}</div>}
                     </div>
                 </div>
                 <div className="modal-footer">

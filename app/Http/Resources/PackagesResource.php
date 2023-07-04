@@ -29,6 +29,7 @@ class PackagesResource extends JsonResource
             'modem' => $this->modem,
             'tv_chanel' => $this->tv_chanel,
             'jumlah_perangkat' => $this->jumlah_perangkat,
+            'status' => $this->status,
         ];
     }
 }
